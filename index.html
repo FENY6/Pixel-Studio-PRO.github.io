@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pixel Sprite Studio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<link rel="manifest" href="manifest.json">
+<header>
+    <h1>Pixel Studio PRO</h1>
+</header>
+
+<div id="container">
+
+    <!-- TOOLBAR -->
+    <div id="toolbar">
+
+        <h3>Tools</h3>
+        <button id="pencilBtn">Pencil</button>
+        <button id="eraserBtn">Eraser</button>
+        <button id="bucketBtn">Bucket</button>
+
+        <hr>
+
+        <h3>Color</h3>
+        <input type="color" id="colorPicker" value="#000000">
+
+        <h3>Palette</h3>
+        <div id="palette"></div>
+
+        <input type="color" id="newColor">
+        <button id="addColor">Add Color</button>
+
+        <hr>
+
+        <h3>Grid Size</h3>
+        <select id="gridSize">
+            <option value="16">16x16</option>
+            <option value="32" selected>32x32</option>
+            <option value="64">64x64</option>
+        </select>
+
+        <button id="clearBtn">Clear</button>
+
+        <hr>
+
+        <h3>Layers</h3>
+        <button id="addLayer">+ Layer</button>
+        <div id="layerList"></div>
+
+        <hr>
+
+        <h3>Frames</h3>
+        <button id="addFrame">+ Frame</button>
+        <div id="frameList"></div>
+
+        <hr>
+
+        <h3>Export</h3>
+        <button id="exportPNG">PNG</button>
+        <button id="exportJPG">JPG</button>
+
+        <hr>
+
+        <h3>Reference</h3>
+        <input type="file" id="referenceUpload" accept="image/*">
+        <img id="referenceImage">
+
+        <input type="range" id="refOpacity" min="0" max="1" step="0.1" value="0.5">
+        <button id="toggleRef">Hide/Show</button>
+
+    </div>
+
+    <!-- CANVAS -->
+    <div id="workspace">
+        <canvas id="pixelCanvas"></canvas>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.js"></script>
+</body>
+</html>

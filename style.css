@@ -1,0 +1,76 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1e1f22;
+    color: white;
+    font-family: Arial;
+}
+
+header {
+    background: #2b2d31;
+    padding: 10px;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    height: calc(100vh - 50px);
+}
+
+#toolbar {
+    width: 240px;
+    background: #2b2d31;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+#toolbar button,
+#toolbar select,
+#toolbar input {
+    width: 100%;
+    margin: 5px 0;
+}
+
+#workspace {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #18191c;
+}
+
+#pixelCanvas {
+    background: white;
+    image-rendering: pixelated;
+    border: 2px solid #444;
+}
+
+#palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.palette-color {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.layer-item,
+.frame-item {
+    background: #444;
+    padding: 5px;
+    margin: 3px 0;
+    cursor: pointer;
+}
+
+#referenceImage {
+    width: 100%;
+    margin-top: 5px;
+}
