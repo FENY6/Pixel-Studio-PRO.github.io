@@ -181,9 +181,6 @@ function exportSpriteSheet() {
     link.click();
 }
 exportSheetBtn.onclick = exportSpriteSheet;
-exportSheetBtn.onclick = () => {
-    console.log("Sprite Sheet button clicked");
-};
 function deleteFrame() {
     if (layers[0].frames.length <= 1) return;
 
@@ -348,11 +345,12 @@ function ensureFrameExists(layerIndex, frameIndex) {
 }
 function init() {
     layers = [
-        {
-            frames: [emptyGrid()],
-            visible: true
-        }
-    ];
+    {
+        name: "Layer 1",
+        frames: [emptyGrid()],
+        visible: true
+    }
+];
 
     currentLayer = 0;
     currentFrame = 0;
@@ -608,7 +606,8 @@ function pickColor(x, y) {
     for (let i = layers.length - 1; i >= 0; i--) {
         if (!layers[i].visible) continue;
 
-        const val = layers[i].data[y][x];
+        const frame = layers[i].frames?.[currentFrame];
+        const val = frame?.[y]?.[x];
         if (val) return val;
     }
     return null;
@@ -695,7 +694,7 @@ function renderLayers() {
         div.className = "layer-item";
 
         div.textContent =
-            (layer.visible ? " " : " ") + "Layer " + (i + 1);
+            (layer.visible ? " " : " ") + layer.name;
 
         div.style.border = i === currentLayer ? "2px solid yellow" : "none";
 
@@ -704,6 +703,13 @@ function renderLayers() {
             currentLayer = i;
             renderLayers();
             draw();
+        };
+        div.ondblclick = () => {
+            const newName = prompt("Rename layer:", layer.name);
+            if (newName) {
+                layer.name = newName;
+                renderLayers();
+            }
         };
 
         /* right click = toggle visibility */
@@ -719,7 +725,10 @@ function renderLayers() {
 }
 
 addLayerBtn.onclick = () => {
+    const newIndex = layers.length + 1;
+
     layers.push({
+        name: "Layer " + newIndex,
         frames: [emptyGrid()],
         visible: true
     });
