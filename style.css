@@ -18,7 +18,7 @@ header {
 
 #container {
     display: flex;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 86px);
 }
 
 #toolbar {
@@ -73,4 +73,34 @@ header {
 #referenceImage {
     width: 100%;
     margin-top: 5px;
+}
+#menuBar {
+    height: 40px;
+    background: #232428;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+#menuLeft,
+#menuRight {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.menuBtn {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.menuBtn:hover {
+    background: #3a3d44;
 }
